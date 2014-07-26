@@ -20,7 +20,7 @@ https://qiita.com/api/v1/search?q=swift
 	- profile_image_url
 
 * Article情報(使いそうなの抜粋)
-  - title
+	- title
 	- body
 	- created_at
 	- updated_at
