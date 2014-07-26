@@ -8,54 +8,13 @@
 
 import Foundation
 class QiitaItem : NSObject {
+  init() {
+    
+  }
   
-  var title: String {
-    get {
-      return self.title
-    }
-    set {
-      self.title = newValue
-    }
-  }
-  var preview: String {
-    get {
-      return self.preview
-    }
-    set {
-      self.preview = newValue
-    }
-  }
-  var userName: String {
-    get {
-      return self.userName
-    }
-    set {
-      self.userName = newValue
-    }
-  }
-  var userIcon: String {
-    get {
-      return self.userIcon
-    }
-    set {
-      self.userIcon = newValue
-    }
-  }
-  var createdDate: String {
-    get {
-      return self.createdDate
-    }
-    set {
-      self.createdDate = newValue
-    }
-  }
-  var stockCount: String {
-    get {
-      return self.stockCount
-    }
-    set {
-      self.stockCount = newValue
-    }
-  }
-
+  var title: String!
+  var userName: String!
+  var articleUrl: String!
+  var date: String!
+  var stockCount: String!
 }
