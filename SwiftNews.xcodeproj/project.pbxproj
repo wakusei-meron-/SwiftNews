@@ -12,6 +12,8 @@
 		E91EEEB519834E0C0030FDE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E91EEEB319834E0C0030FDE2 /* Main.storyboard */; };
 		E91EEEB719834E0C0030FDE2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E91EEEB619834E0C0030FDE2 /* Images.xcassets */; };
 		E91EEEC319834E0C0030FDE2 /* SwiftNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EEEC219834E0C0030FDE2 /* SwiftNewsTests.swift */; };
+		E91EEECF198359680030FDE2 /* GetArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EEECE198359680030FDE2 /* GetArticle.swift */; };
+		E91EEED219837F170030FDE2 /* QiitaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EEED119837F170030FDE2 /* QiitaItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,8 @@
 		E91EEEBC19834E0C0030FDE2 /* SwiftNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E91EEEC119834E0C0030FDE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E91EEEC219834E0C0030FDE2 /* SwiftNewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNewsTests.swift; sourceTree = "<group>"; };
+		E91EEECE198359680030FDE2 /* GetArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetArticle.swift; sourceTree = "<group>"; };
+		E91EEED119837F170030FDE2 /* QiitaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QiitaItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 		E91EEEAC19834E0C0030FDE2 /* SwiftNews */ = {
 			isa = PBXGroup;
 			children = (
+				E91EEED01983597E0030FDE2 /* AAkira */,
 				E91EEEAF19834E0C0030FDE2 /* AppDelegate.swift */,
 				E91EEEB119834E0C0030FDE2 /* ViewController.swift */,
 				E91EEEB319834E0C0030FDE2 /* Main.storyboard */,
@@ -107,6 +112,15 @@
 				E91EEEC119834E0C0030FDE2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E91EEED01983597E0030FDE2 /* AAkira */ = {
+			isa = PBXGroup;
+			children = (
+				E91EEECE198359680030FDE2 /* GetArticle.swift */,
+				E91EEED119837F170030FDE2 /* QiitaItem.swift */,
+			);
+			name = AAkira;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,7 +223,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E91EEEB219834E0C0030FDE2 /* ViewController.swift in Sources */,
+				E91EEED219837F170030FDE2 /* QiitaItem.swift in Sources */,
 				E91EEEB019834E0C0030FDE2 /* AppDelegate.swift in Sources */,
+				E91EEECF198359680030FDE2 /* GetArticle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +413,7 @@
 				E91EEEC819834E0C0030FDE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E91EEEC919834E0C0030FDE2 /* Build configuration list for PBXNativeTarget "SwiftNewsTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +422,7 @@
 				E91EEECB19834E0C0030FDE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
