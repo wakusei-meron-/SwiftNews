@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37E5DF00198392EB0020EF1F /* swift.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E5DEFE198392EB0020EF1F /* swift.png */; };
+		37E5DF01198392EB0020EF1F /* bg_swift.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E5DEFF198392EB0020EF1F /* bg_swift.png */; };
+		37E5DF031983947B0020EF1F /* Swift_sprash.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E5DF021983947B0020EF1F /* Swift_sprash.png */; };
 		E91EEEB019834E0C0030FDE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EEEAF19834E0C0030FDE2 /* AppDelegate.swift */; };
 		E91EEEB219834E0C0030FDE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EEEB119834E0C0030FDE2 /* ViewController.swift */; };
 		E91EEEB519834E0C0030FDE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E91EEEB319834E0C0030FDE2 /* Main.storyboard */; };
@@ -25,6 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		37E5DEFE198392EB0020EF1F /* swift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swift.png; path = Base.lproj/Images/swift.png; sourceTree = "<group>"; };
+		37E5DEFF198392EB0020EF1F /* bg_swift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_swift.png; path = Base.lproj/Images/bg_swift.png; sourceTree = "<group>"; };
+		37E5DF021983947B0020EF1F /* Swift_sprash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Swift_sprash.png; path = Base.lproj/Images/Swift_sprash.png; sourceTree = "<group>"; };
 		E91EEEAA19834E0C0030FDE2 /* SwiftNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E91EEEAE19834E0C0030FDE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E91EEEAF19834E0C0030FDE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +60,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37E5DEFD198392940020EF1F /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				37E5DF021983947B0020EF1F /* Swift_sprash.png */,
+				37E5DEFE198392EB0020EF1F /* swift.png */,
+				37E5DEFF198392EB0020EF1F /* bg_swift.png */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
 		E91EEEA119834E0C0030FDE2 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +91,7 @@
 		E91EEEAC19834E0C0030FDE2 /* SwiftNews */ = {
 			isa = PBXGroup;
 			children = (
+				37E5DEFD198392940020EF1F /* Image */,
 				E91EEEAF19834E0C0030FDE2 /* AppDelegate.swift */,
 				E91EEEB119834E0C0030FDE2 /* ViewController.swift */,
 				E91EEEB319834E0C0030FDE2 /* Main.storyboard */,
@@ -189,7 +206,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37E5DF01198392EB0020EF1F /* bg_swift.png in Resources */,
 				E91EEEB519834E0C0030FDE2 /* Main.storyboard in Resources */,
+				37E5DF00198392EB0020EF1F /* swift.png in Resources */,
+				37E5DF031983947B0020EF1F /* Swift_sprash.png in Resources */,
 				E91EEEB719834E0C0030FDE2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +417,7 @@
 				E91EEEC819834E0C0030FDE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E91EEEC919834E0C0030FDE2 /* Build configuration list for PBXNativeTarget "SwiftNewsTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +426,7 @@
 				E91EEECB19834E0C0030FDE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
