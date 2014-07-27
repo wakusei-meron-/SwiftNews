@@ -2,67 +2,76 @@
 //  GetArticle.swift
 //  SwiftNews
 //
-//  Created by akira on 2014/07/26.
+//  Created by PxP_ss on 2014/07/27.
 //  Copyright (c) 2014年 A.Akira. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class GetArticle : NSObject {
-  
-  let QIITA_URL = "https://qiita.com/"
-  let GET_SEARCH = "api/v1/search?q=swift"
-  
-  let TAG_TITLE = "title"
-  let TAG_DATE = "created_at_in_words"
-  let TAG_ARTICLE_URL = "url"
-  let TAG_STOCK_COUNT = "stock_count"
-  
-  let TAG_USER = "user"
-  let TAG_USER_NAME = "url_name"
-  
-  var articleArray: NSMutableArray = []
-  
-  func getArticle() -> NSMutableArray {
-    let url = NSURL(string: QIITA_URL + GET_SEARCH)
-    let request = NSURLRequest(URL: url)
-    let data = NSURLConnection.sendSynchronousRequest(request, returningResponse: nil, error: nil)
+class GetArticle : NSObject, NSURLConnectionDelegate  {
+    var articleArray: NSMutableArray = []
     
-    let ret = NSString(data:data, encoding:NSUTF8StringEncoding)
-    
-    let json: NSArray = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.AllowFragments, error: nil) as NSArray
-    
-    var userObject: QiitaItem = QiitaItem()
-    for var i=0; i<json.count; i++ {
-      if let obj: AnyObject = json[i]? {
-        if let objDic = obj as? [String: AnyObject] {
-          if let user = objDic[TAG_USER] {
-            if let name = objDic[TAG_USER_NAME] {
-              NSLog("\(name)")
-              userObject.userName = name as String
-            }
-          }
-          if let title: String = objDic[TAG_TITLE] as? NSString {
-            NSLog("\(title)")
-            userObject.title = title
-          }
-          if let url: String = objDic[TAG_ARTICLE_URL] as? NSString {
-            NSLog("\(url)")
-            userObject.articleUrl = url
-          }
-          if let date: String = objDic[TAG_DATE] as? NSString {
-            NSLog("\(date)")
-            userObject.date = date
-          }
-          if let count: String = objDic[TAG_STOCK_COUNT] as? NSString {
-            NSLog("\(count)")
-            userObject.stockCount = count
-          }
+    func getArticle() -> NSMutableArray {
+        let url = NSURL.URLWithString("https://qiita.com/api/v1/search?q=swift")
+        let request = NSURLRequest(URL: url)
+        
+        let connection = NSURLConnection.connectionWithRequest(request, delegate:self)
+        let res = NSURLConnection.sendSynchronousRequest(request, returningResponse: nil, error: nil)?
+        
+        /*
+        // resが帰ってこなかった場合、リクエストを再度送る処理を書きたかった
+        if (!res){
+            sleep(5)
+            return self.getArticle()
         }
-        println()
-        articleArray.addObject(userObject)
-      }
+        */
+        
+        let json: NSArray? = NSJSONSerialization.JSONObjectWithData(res as NSData, options:NSJSONReadingOptions.AllowFragments, error: nil) as? NSArray
+        
+        
+        if (!json){
+            return articleArray
+        }
+        
+        var userObject: QiitaItem = QiitaItem()
+        for obj in json! {
+            println("----------------------------")
+            userObject = QiitaItem()
+            if let userName:NSString = (((obj as? NSDictionary)?["user"] as? NSDictionary)?["name"] as? NSString)? {
+                userObject.userName = userName
+                println("userName:" + userName)
+            }
+            if let title:NSString = ((obj as? NSDictionary)?["title"] as? NSString)? {
+                userObject.title = title
+                println("title:" + title)
+            }
+            if let stock:NSString = ((obj as? NSDictionary)?["stock_count"] as? NSString)? {
+                userObject.stockCount = stock
+                println("stock:" + stock)
+            }
+            if let url:NSString = ((obj as? NSDictionary)?["url"] as? NSString)? {
+                userObject.articleUrl = url
+                println("articleURL:" + url)
+            }
+            if let created_at_in_words:NSString = ((obj as? NSDictionary)?["created_at_in_words"] as? NSString)? {
+                userObject.date = created_at_in_words
+                println("date:" + created_at_in_words)
+            }
+            articleArray.addObject(userObject)
+        }
+        
+        println("----------------------------")
+        println(articleArray)
+        
+        return articleArray
     }
-    return articleArray
-  }
+    
+    func connection(connection: NSURLConnection!, canAuthenticateAgainstProtectionSpace protectionSpace: NSURLProtectionSpace!) -> Bool
+    {
+        var urlFlag = false
+        if (protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust){
+            urlFlag = true
+        }
+        return urlFlag
+    }
 }
