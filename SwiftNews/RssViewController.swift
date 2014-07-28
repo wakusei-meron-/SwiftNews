@@ -87,7 +87,9 @@ class RssViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         // なぜかarticleUrlにアクセスできない
         //urls.addObject(rssItems[indexPath.row].articleUrl)
-        urls.addObject("http://qiita.com/yukihamada/items/9b0067f905418105a2c6" as NSString)
+//        urls.addObject("http://qiita.com/yukihamada/items/9b0067f905418105a2c6" as NSString)
+        var item:QiitaItem = rssItems[indexPath.row] as QiitaItem
+        urls.addObject(item.articleUrl)
         
         var title:NSString = rssItems[indexPath.row].title      as NSString
         
